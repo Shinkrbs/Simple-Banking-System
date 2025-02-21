@@ -21,5 +21,13 @@ namespace Test
             b.Deposit(100.0);
             Assert.AreEqual(100.0, b.GetBalance());
         }
+
+        [TestMethod]
+        public void GetBalance_ReturnsBalance()
+        {
+            Bank_Account b = new Bank_Account();
+            b.Deposit(100.0);
+            Assert.AreEqual(100.0, b.GetBalance());
+        }
     }
 }

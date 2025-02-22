@@ -109,6 +109,7 @@ namespace Banking_System.Classes
         }
     }
 
+    #region Exceptions
     public class CustomerNotFoundException : Exception
     {
         public Customer Customer { get; private set; }
@@ -117,4 +118,5 @@ namespace Banking_System.Classes
             this.Customer = customer;
         }
     }
+    #endregion
 }

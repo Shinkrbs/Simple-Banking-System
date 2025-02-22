@@ -1,2 +1,7 @@
 .vs/
 .vs/
+.commits/
+bin/Debug/
+obj/Debug/
+Banking System.sln
+Banking System.csproj

@@ -1,7 +1,17 @@
+# Ignore Visual Studio files
 .vs/
-.vs/
+
+# Ignore commit-related folder (if applicable)
 .commits/
+
+# Ignore compiled files
+bin/
+obj/
+
+# Ignore Debug builds
 bin/Debug/
 obj/Debug/
+
+# Ignore project-specific files
 Banking System.sln
 Banking System.csproj

@@ -1,7 +1,0 @@
-C:\Users\shin\Documents\BSCS 2nd Year\Second Semester\Event Driven Programming\Banking System\bin\Debug\Banking System.exe.config
-C:\Users\shin\Documents\BSCS 2nd Year\Second Semester\Event Driven Programming\Banking System\bin\Debug\Banking System.exe
-C:\Users\shin\Documents\BSCS 2nd Year\Second Semester\Event Driven Programming\Banking System\bin\Debug\Banking System.pdb
-C:\Users\shin\Documents\BSCS 2nd Year\Second Semester\Event Driven Programming\Banking System\obj\Debug\Banking System.csproj.AssemblyReference.cache
-C:\Users\shin\Documents\BSCS 2nd Year\Second Semester\Event Driven Programming\Banking System\obj\Debug\Banking System.csproj.CoreCompileInputs.cache
-C:\Users\shin\Documents\BSCS 2nd Year\Second Semester\Event Driven Programming\Banking System\obj\Debug\Banking System.exe
-C:\Users\shin\Documents\BSCS 2nd Year\Second Semester\Event Driven Programming\Banking System\obj\Debug\Banking System.pdb

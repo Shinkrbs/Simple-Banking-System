@@ -19,11 +19,10 @@ namespace Bank
         private string address;
         private int age;
         
-
         [TestInitialize]
         public void Setup()
         {
-            Fixed_Account_CreationTime = new DateTime(2025, 2, 27, 10, 0, 0); // Feb. 27, 2025 !0:00
+            Fixed_Account_CreationTime = new DateTime(2025, 2, 27, 10, 0, 0); // Feb. 27, 2025 10:00
             c = new Customer("123456", "John", "Doe", Fixed_Account_CreationTime);
 
             cID = c.CustomerID;
@@ -62,5 +61,19 @@ namespace Bank
             Assert.AreEqual(age, c.Age);
         }
         #endregion
+
+        [TestMethod]
+        public void AddEmail_ValidEmail()
+        {
+            c.AddEmail(Fixed_Email);
+            Assert.AreEqual(Fixed_Email, c.Email);
+        }
+
+        [TestMethod]
+        public void AddEmail_InvalidEmail()
+        {
+            var ex = Assert.ThrowsException<InvalidEmailException>(() => c.AddEmail("randomgibbersih.com"));
+            Assert.AreEqual("", c.Email);
+        }
     }
 }

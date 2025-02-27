@@ -10,6 +10,7 @@ namespace Bank
 	{
         #region Test Setup
         private Customer c;
+        private Bank_Account dummy;
         private DateTime Fixed_Account_CreationTime;
         private string cID;
         private string fName;
@@ -24,6 +25,8 @@ namespace Bank
         {
             Fixed_Account_CreationTime = new DateTime(2025, 2, 27, 10, 0, 0); // Feb. 27, 2025 10:00
             c = new Customer("123456", "John", "Doe", Fixed_Account_CreationTime);
+            dummy = new Bank_Account();
+            c.AddAccount(dummy);
 
             cID = c.CustomerID;
             fName = c.FirstName;
@@ -74,6 +77,28 @@ namespace Bank
         {
             var ex = Assert.ThrowsException<InvalidEmailException>(() => c.AddEmail("randomgibbersih.com"));
             Assert.AreEqual("", c.Email);
+        }
+
+        [TestMethod]
+        public void AddAccount_AddsAccount()
+        {
+            Assert.AreEqual(1, c.Accounts.Count);
+            Assert.AreEqual(dummy, c.Accounts[0]);
+        }
+
+        [TestMethod]
+        public void RetrieveBankAccount_ReturnsAccount()
+        {
+            var ex = c.RetrieveBankAccount(dummy.AccountNumber);
+            Assert.AreEqual(dummy, ex);
+        }
+
+        [TestMethod]
+        public void RetrieveBankAccount_EmptyList()
+        {
+            c.Accounts.Clear();
+            var ex = Assert.ThrowsException<EmptyAccountList>(() => c.RetrieveBankAccount(dummy.AccountNumber));
+            Assert.AreEqual("No Accounts Found", ex.Message);
         }
     }
 }

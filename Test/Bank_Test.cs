@@ -78,5 +78,25 @@ namespace Test
             var ex = Assert.ThrowsException<CustomerNotFoundException>(() => b.RemoveCustomer(dummy));
             Assert.AreEqual("Error, Customer not found", ex.Message);
         }
+
+        [TestMethod]
+        public void Transaction_CustomerNotFound()
+        {
+            Customer dummy = new Customer("2376854", dummyFName, dummyLName, dummyDate);
+            var ex = Assert.ThrowsException<CustomerNotFoundException>(() => b.Transaction(dummy, null, 100.0, 1));
+            Assert.AreEqual("Error, Customer not found", ex.Message);
+        }
+
+        [TestMethod]
+        public void Transaction_AccountNotFound()
+        {
+            Customer dummy = new Customer(dummyId, dummyFName, dummyLName, dummyDate);
+            b.Customers.Add(dummy);
+            Bank_Account dummyAccount = new Bank_Account("12345678", 100.0);
+            dummy.AddAccount(dummyAccount);
+            Bank_Account AccounttoSearch = new Bank_Account("12875678", 100.0);
+            var ex = Assert.ThrowsException<AccountNotFoundException>(() => b.Transaction(dummy, AccounttoSearch, 100.0, 1));
+            Assert.AreEqual("Error, Account not found", ex.Message);
+        }
     }
 }

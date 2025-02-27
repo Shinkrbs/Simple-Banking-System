@@ -1,7 +1,7 @@
 ﻿using System;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using Simple_Banking_System.Classes;
-using Simple_Banking_System.Enums;
+using Banking_System.Classes;
+using Banking_System.Enums;
 
 namespace Test
 {

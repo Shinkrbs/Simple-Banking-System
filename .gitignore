@@ -15,5 +15,6 @@ obj/Debug/
 # Ignore project-specific files
 Banking System.sln
 Banking System.csproj
+Test.csproj
 App.config
 Properties/ 

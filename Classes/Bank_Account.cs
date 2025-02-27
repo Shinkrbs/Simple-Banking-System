@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Simple_Banking_System.Enums;
+using Banking_System.Enums;
 
-namespace Simple_Banking_System.Classes
+namespace Banking_System.Classes
 {
     public class Bank_Account
     {

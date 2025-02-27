@@ -5,7 +5,7 @@ using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 
-namespace Simple_Banking_System.Classes
+namespace Banking_System.Classes
 {
     public class Customer
     {

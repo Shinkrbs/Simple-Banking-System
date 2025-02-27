@@ -72,7 +72,7 @@ namespace Simple_Banking_System.Classes
         public Bank_Account RetrieveBankAccount(string accountnumber)
         {
             if (this.Accounts.Count == 0)
-                throw new EmptyAccountList("No Accounts Found");
+                throw new EmptyAccountListException("No Accounts Found");
             for (int i = 0; i < this.Accounts.Count; i++)
             {
                 if (this.Accounts[i].AccountNumber == accountnumber)
@@ -84,7 +84,7 @@ namespace Simple_Banking_System.Classes
         public void RemoveBankAccount(string accountnumber)
         {
             if (this.Accounts.Count == 0)
-                throw new EmptyAccountList("No Accounts Found");
+                throw new EmptyAccountListException("No Accounts Found");
             for (int i = 0; i < this.Accounts.Count; i++)
             {
                 if (this.Accounts[i].AccountNumber == accountnumber)
@@ -125,10 +125,10 @@ namespace Simple_Banking_System.Classes
         }
     }
 
-    public class EmptyAccountList : Exception
+    public class EmptyAccountListException : Exception
     {
 
-        public EmptyAccountList(string message) : base(message) { }
+        public EmptyAccountListException(string message) : base(message) { }
     }
     #endregion
 }

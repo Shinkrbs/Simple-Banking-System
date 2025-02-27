@@ -53,7 +53,7 @@ namespace Test
         public void Withdraw_InsuficcientFunds()
         {
             Bank_Account b = new Bank_Account();
-            var ex = Assert.ThrowsException<InsufficientFundsException>(() => b.Withdraw(0.0));
+            var ex = Assert.ThrowsException<InsufficientFundsException>(() => b.Withdraw(10.0));
             Assert.AreEqual("Amount is greater than available balance", ex.Message);
         }
     }

@@ -9,32 +9,25 @@ namespace Test
 	public class Customer_Test
 	{
         #region Test Setup
+
         private Customer c;
         private Bank_Account dummy;
         private DateTime Fixed_Account_CreationTime;
-        private string cID;
-        private string fName;
-        private string lName;
-        private string Fixed_Email;
-        private string mName;
-        private string address;
-        private int age;
+        private string cID = "123456";
+        private string fName = "John";
+        private string lName = "Doe";
+        private string Fixed_Email = "example@gmail.com";
+        private string mName = "Cruz";
+        private string address = "1234 Artikulo Burgos St.";
+        private int age = 21;
         
         [TestInitialize]
         public void Setup()
         {
             Fixed_Account_CreationTime = new DateTime(2025, 2, 27, 10, 0, 0); // Feb. 27, 2025 10:00
-            c = new Customer("123456", "John", "Doe", Fixed_Account_CreationTime, "Cruz", "1234 Artikulo Burgos St.", 21);
+            c = new Customer(cID, fName, lName, Fixed_Account_CreationTime, mName, address, age);
             dummy = new Bank_Account();
             c.AddAccount(dummy);
-
-            cID = c.CustomerID;
-            fName = c.FirstName;
-            lName = c.LastName;
-            Fixed_Email = "example@gmail.com";
-            mName = c.MiddleName;
-            address = c.Address;
-            age = c.Age;
         }
         #endregion
 

@@ -10,12 +10,15 @@ namespace Test
     public class Bank_Account_Test
     {
         #region Setup
+
         private Bank_Account b;
+        private string bID = "123459987";
+        private double bBalance = 100.0;
 
         [TestInitialize]
         public void Setup()
         {
-            b = new Bank_Account("123459987", 100.0);
+            b = new Bank_Account(bID, bBalance);
         }
         #endregion
 

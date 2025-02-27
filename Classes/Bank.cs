@@ -29,6 +29,8 @@ namespace Banking_System.Classes
 
         public void RemoveCustomer(Customer customer)
         {
+            if (this.Customers.Count == 0)
+                throw new CustomerListEmptyException("Customer List is Empty");
             for(int i = 0; i < this.Customers.Count; i++)
             {
                 if (this.Customers[i].CustomerID == customer.CustomerID)
@@ -116,6 +118,11 @@ namespace Banking_System.Classes
         {
             this.Customer = customer;
         }
+    }
+
+    public class CustomerListEmptyException : Exception
+    {
+        public CustomerListEmptyException(string message) : base(message) {  }
     }
     #endregion
 }

@@ -95,8 +95,57 @@ namespace Test
             Bank_Account dummyAccount = new Bank_Account("12345678", 100.0);
             dummy.AddAccount(dummyAccount);
             Bank_Account AccounttoSearch = new Bank_Account("12875678", 100.0);
+
             var ex = Assert.ThrowsException<AccountNotFoundException>(() => b.Transaction(dummy, AccounttoSearch, 100.0, 1));
             Assert.AreEqual("Error, Account not found", ex.Message);
+        }
+
+        [TestMethod]
+        public void Transaction_Deposit()
+        {
+            Customer dummy = new Customer(dummyId, dummyFName, dummyLName, dummyDate);
+            b.Customers.Add(dummy);
+            Bank_Account dummyAccount = new Bank_Account("12345678", 100.0);
+            dummy.AddAccount(dummyAccount);
+
+            b.Transaction(dummy, dummyAccount, 100.0, 1);
+            Assert.AreEqual(200.0, dummyAccount.GetBalance());
+        }
+
+        [TestMethod]
+        public void Transaction_GetBalance()
+        {
+            Customer dummy = new Customer(dummyId, dummyFName, dummyLName, dummyDate);
+            b.Customers.Add(dummy);
+            Bank_Account dummyAccount = new Bank_Account("12345678", 100.0);
+            dummy.AddAccount(dummyAccount);
+
+            b.Transaction(dummy, dummyAccount, 0.0, 2);
+            Assert.AreEqual(100.0, dummyAccount.GetBalance());
+        }
+
+        [TestMethod]
+        public void Transaction_Withdraw()
+        {
+            Customer dummy = new Customer(dummyId, dummyFName, dummyLName, dummyDate);
+            b.Customers.Add(dummy);
+            Bank_Account dummyAccount = new Bank_Account("12345678", 100.0);
+            dummy.AddAccount(dummyAccount);
+
+            b.Transaction(dummy, dummyAccount, 50.0, 3);
+            Assert.AreEqual(50.0, dummyAccount.GetBalance());
+        }
+
+        [TestMethod]
+        public void Transaction_InvalidChoice()
+        {
+            Customer dummy = new Customer(dummyId, dummyFName, dummyLName, dummyDate);
+            b.Customers.Add(dummy);
+            Bank_Account dummyAccount = new Bank_Account("12345678", 100.0);
+            dummy.AddAccount(dummyAccount);
+
+            var ex = Assert.ThrowsException<InvalidTransactionChoiceException>(() => b.Transaction(dummy, dummyAccount, 50.0, 5));
+            Assert.AreEqual("Invalid transaction choice", ex.Message);
         }
     }
 }

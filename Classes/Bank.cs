@@ -65,9 +65,9 @@ namespace Banking_System.Classes
                     account.Withdraw(amount);
                     break;
                 case 4:
-                    return; // Exit
+                    return;
                 default:
-                    throw new ArgumentException("Invalid transaction choice");
+                    throw new InvalidTransactionChoiceException("Invalid transaction choice");
             }
         }
     }
@@ -85,6 +85,11 @@ namespace Banking_System.Classes
     public class CustomerListEmptyException : Exception
     {
         public CustomerListEmptyException(string message) : base(message) {  }
+    }
+
+    public class InvalidTransactionChoiceException : Exception
+    {
+        public InvalidTransactionChoiceException(string message) : base(message) { }
     }
     #endregion
 }

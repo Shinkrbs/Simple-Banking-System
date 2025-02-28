@@ -55,13 +55,19 @@ namespace Banking_System.Classes
         public void AddEmail(string email)
         {
             Regex regex = new Regex(@"^[^@\s]+@[^@\s]+\.[^@\s]+$");
-            if (regex.IsMatch(email))
+
+            try
             {
-                this.Email = email;
-                System.Console.WriteLine("Email Added Successfully");
+                if (regex.IsMatch(email))
+                {
+                    this.Email = email;
+                    System.Console.WriteLine("Email Added Successfully");
+                }
             }
-            else
-                throw new InvalidEmailException(email, "Invalid Email Address");
+            catch (InvalidEmailException ex)
+            {
+                System.Console.WriteLine(ex.Message);
+            }
         }
 
         public void AddAccount(Bank_Account account)
